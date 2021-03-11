@@ -109,7 +109,7 @@ CREATE TABLE `book_storage` (
   `category_id` int NOT NULL,
   `link_photo` varchar(45) NOT NULL,
   `release_year` varchar(4) NOT NULL,
-  `decription` text,
+  `description` text,
   `author` varchar(45) DEFAULT NULL,
   `price` bigint DEFAULT NULL,
   `amount` int DEFAULT NULL,
@@ -283,7 +283,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `detail_page` AS select `book_storage`.`link_photo` AS `link_photo`,`book_storage`.`book_title` AS `book_title`,`book_storage`.`release_year` AS `release_year`,`book_storage`.`decription` AS `decription`,`book_storage`.`author` AS `author`,`book_storage`.`price` AS `price`,`book_category`.`category_name` AS `Generic`,`users`.`user_phone` AS `user_phone`,`users`.`user_email` AS `user_email` from (((`book_storage` join `book_post` on((`book_storage`.`book_id` = `book_post`.`book_id`))) join `users` on((`book_post`.`user_phone` = `users`.`user_phone`))) join `book_category` on((`book_storage`.`category_id` = `book_category`.`category_id`))) */;
+/*!50001 VIEW `detail_page` AS select `book_storage`.`link_photo` AS `link_photo`,`book_storage`.`book_title` AS `book_title`,`book_storage`.`release_year` AS `release_year`,`book_storage`.`description` AS `decription`,`book_storage`.`author` AS `author`,`book_storage`.`price` AS `price`,`book_category`.`category_name` AS `Generic`,`users`.`user_phone` AS `user_phone`,`users`.`user_email` AS `user_email` from (((`book_storage` join `book_post` on((`book_storage`.`book_id` = `book_post`.`book_id`))) join `users` on((`book_post`.`user_phone` = `users`.`user_phone`))) join `book_category` on((`book_storage`.`category_id` = `book_category`.`category_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -337,7 +337,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `post_book_page` AS select `book_storage`.`book_title` AS `Title`,`book_category`.`category_name` AS `Generic`,`book_storage`.`link_photo` AS `Link photo`,`book_storage`.`price` AS `Price`,`book_storage`.`release_year` AS `Release year`,`book_storage`.`decription` AS `Decription`,`book_post`.`date` AS `Date`,`book_storage`.`author` AS `Author` from ((`book_storage` join `book_category` on((`book_storage`.`category_id` = `book_category`.`category_id`))) join `book_post` on((`book_storage`.`book_id` = `book_post`.`book_id`))) */;
+/*!50001 VIEW `post_book_page` AS select `book_storage`.`book_title` AS `Title`,`book_category`.`category_name` AS `Generic`,`book_storage`.`link_photo` AS `Link photo`,`book_storage`.`price` AS `Price`,`book_storage`.`release_year` AS `Release year`,`book_storage`.`description` AS `Decription`,`book_post`.`date` AS `Date`,`book_storage`.`author` AS `Author` from ((`book_storage` join `book_category` on((`book_storage`.`category_id` = `book_category`.`category_id`))) join `book_post` on((`book_storage`.`book_id` = `book_post`.`book_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -405,4 +405,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-08 22:05:09
+-- Dump completed on 2021-03-11  0:34:58

@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `book`.`book_storage` (
   `category_id` INT NOT NULL,
   `link_photo` VARCHAR(45) NOT NULL,
   `release_year` VARCHAR(4) NOT NULL,
-  `decription` TEXT NULL DEFAULT NULL,
+  `description` TEXT NULL DEFAULT NULL,
   `author` VARCHAR(45) NULL DEFAULT NULL,
   `price` BIGINT NULL DEFAULT NULL,
   `amount` INT NULL DEFAULT NULL,
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `book`.`user_page_3` (`Link photo` INT, `Book title` 
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `book`.`detail_page`;
 USE `book`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `book`.`detail_page` AS select `book`.`book_storage`.`link_photo` AS `link_photo`,`book`.`book_storage`.`book_title` AS `book_title`,`book`.`book_storage`.`release_year` AS `release_year`,`book`.`book_storage`.`decription` AS `decription`,`book`.`book_storage`.`author` AS `author`,`book`.`book_storage`.`price` AS `price`,`book`.`book_category`.`category_name` AS `Generic`,`book`.`users`.`user_phone` AS `user_phone`,`book`.`users`.`user_email` AS `user_email` from (((`book`.`book_storage` join `book`.`book_post` on((`book`.`book_storage`.`book_id` = `book`.`book_post`.`book_id`))) join `book`.`users` on((`book`.`book_post`.`user_phone` = `book`.`users`.`user_phone`))) join `book`.`book_category` on((`book`.`book_storage`.`category_id` = `book`.`book_category`.`category_id`)));
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `book`.`detail_page` AS select `book`.`book_storage`.`link_photo` AS `link_photo`,`book`.`book_storage`.`book_title` AS `book_title`,`book`.`book_storage`.`release_year` AS `release_year`,`book`.`book_storage`.`description` AS `decription`,`book`.`book_storage`.`author` AS `author`,`book`.`book_storage`.`price` AS `price`,`book`.`book_category`.`category_name` AS `Generic`,`book`.`users`.`user_phone` AS `user_phone`,`book`.`users`.`user_email` AS `user_email` from (((`book`.`book_storage` join `book`.`book_post` on((`book`.`book_storage`.`book_id` = `book`.`book_post`.`book_id`))) join `book`.`users` on((`book`.`book_post`.`user_phone` = `book`.`users`.`user_phone`))) join `book`.`book_category` on((`book`.`book_storage`.`category_id` = `book`.`book_category`.`category_id`)));
 
 -- -----------------------------------------------------
 -- View `book`.`home_page`
@@ -171,7 +171,7 @@ CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY D
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `book`.`post_book_page`;
 USE `book`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `book`.`post_book_page` AS select `book`.`book_storage`.`book_title` AS `Title`,`book`.`book_category`.`category_name` AS `Generic`,`book`.`book_storage`.`link_photo` AS `Link photo`,`book`.`book_storage`.`price` AS `Price`,`book`.`book_storage`.`release_year` AS `Release year`,`book`.`book_storage`.`decription` AS `Decription`,`book`.`book_post`.`date` AS `Date`,`book`.`book_storage`.`author` AS `Author` from ((`book`.`book_storage` join `book`.`book_category` on((`book`.`book_storage`.`category_id` = `book`.`book_category`.`category_id`))) join `book`.`book_post` on((`book`.`book_storage`.`book_id` = `book`.`book_post`.`book_id`)));
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `book`.`post_book_page` AS select `book`.`book_storage`.`book_title` AS `Title`,`book`.`book_category`.`category_name` AS `Generic`,`book`.`book_storage`.`link_photo` AS `Link photo`,`book`.`book_storage`.`price` AS `Price`,`book`.`book_storage`.`release_year` AS `Release year`,`book`.`book_storage`.`description` AS `Decription`,`book`.`book_post`.`date` AS `Date`,`book`.`book_storage`.`author` AS `Author` from ((`book`.`book_storage` join `book`.`book_category` on((`book`.`book_storage`.`category_id` = `book`.`book_category`.`category_id`))) join `book`.`book_post` on((`book`.`book_storage`.`book_id` = `book`.`book_post`.`book_id`)));
 
 -- -----------------------------------------------------
 -- View `book`.`user_page_1`
