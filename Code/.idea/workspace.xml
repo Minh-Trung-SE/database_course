@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec670d2b-720d-48e0-aef0-d0f1b101c286" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Code/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Code/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Code/users.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Code/users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database Backup/backup_8-3-2021.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../book.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../book.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,19 +56,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -86,6 +73,9 @@
       <workItem from="1615395224519" duration="6000" />
       <workItem from="1615395275558" duration="2654000" />
       <workItem from="1615430730081" duration="995000" />
+      <workItem from="1615466216516" duration="2857000" />
+      <workItem from="1616248913890" duration="7012000" />
+      <workItem from="1616256008138" duration="325000" />
     </task>
     <servers />
   </component>
@@ -103,5 +93,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

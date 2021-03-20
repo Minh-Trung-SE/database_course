@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         System.out.println("-------- Start Connection ------------");
         try
         {
@@ -22,5 +22,8 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console"  + e);
         }
+        users users = new users();
+        users.registerUser(connection);
     }
+
 }
