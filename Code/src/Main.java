@@ -18,12 +18,14 @@ public class Main {
         try {
             connection = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/book?characterEncoding=utf8", "root", "Minhtrung1772k1");
-            System.out.println("Login Successful!");
+            System.out.println("Connection Successful!");
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console"  + e);
         }
         users users = new users();
+        users.login(connection, "0335840115","minhtrung");
         users.registerUser(connection);
+
     }
 
 }

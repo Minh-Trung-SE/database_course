@@ -5,18 +5,23 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class users {
-    long user_phone;
+    String user_phone;
     String user_name;
     String user_password;
     String user_email;
 
-    public boolean login(Connection connection, long user_phone, String user_password) throws SQLException {
+    public boolean login(Connection connection, String user_phone, String user_password) throws SQLException {
         Scanner scanner = new Scanner(System.in);
-        String query = "SELECT user_id FROM `book`.`users` WHERE `user_phone` = " + user_phone + ";";
+        String query = "SELECT user_phone, user_password FROM `book`.`users` WHERE `user_phone` = " + user_phone + ";";
         Statement statement = connection.createStatement();
         ResultSet result = statement.executeQuery(query);
-        if(user_phone == result.getLong("user_phone") && user_password.equals(result.getString("user_password"))){
-            return true;
+        if(result.next()){
+            if(user_phone.equals(result.getString("user_phone")) && user_password.equals(result.getString("user_password"))){
+                System.out.println("Login success!");
+                return true;
+            }else{
+                System.out.println("Login failed!");
+            }
         }
         return false;
     }
@@ -55,14 +60,16 @@ public class users {
             System.out.println(query);
             statement.executeUpdate(query);
             System.out.println("Register success!");
+        }else{
+            System.out.println("Failed 0"+user_phone+" has used by another account!");
         }
     }
 
-    public long getUser_phone() {
+    public String getUser_phone() {
         return user_phone;
     }
 
-    public void setUser_phone(long user_phone) {
+    public void setUser_phone(String user_phone) {
         this.user_phone = user_phone;
     }
 
