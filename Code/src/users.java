@@ -67,6 +67,29 @@ public class users {
         }
     }
 
+    public void changeInfo(String user_phone,Connection connection) throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        String user_name, user_password, user_email, query;
+        System.out.println("Enter new username: ");
+        user_name = scanner.nextLine();
+        System.out.print("Enter new password: ");
+        user_password = scanner.nextLine();
+        System.out.print("Enter new email: ");
+        user_email = scanner.nextLine();
+        Statement statement = connection.createStatement();
+        query = "UPDATE `book`.`users` SET `user_name` = '"+user_name+"', `user_password` = '"+user_password+"', `user_email` = '"+user_email+"' WHERE (`user_phone` = '"+user_phone+"');";
+        statement.executeUpdate(query);
+    }
+
+    public void changePassword(String user_phone,Connection connection) throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        String ser_password, query;
+        System.out.print("Enter new password: ");
+        user_password = scanner.nextLine();
+        Statement statement = connection.createStatement();
+        query = "UPDATE `book`.`users` SET `user_password` = '"+user_password+"' WHERE (`user_phone` = '"+user_phone+"')";
+        statement.executeUpdate(query);
+    }
     public String getUser_phone() {
         return user_phone;
     }

@@ -20,7 +20,6 @@ public class book {
     void showTitleBookByCategory(String user_phone, Connection connection) throws SQLException {
         String user_name, query;
         int id;
-        ArrayList <book_category> categories = new ArrayList<book_category>();
         /*Show user name*/
         Statement statement = connection.createStatement();
         query = "SELECT `user_name` FROM `book`.`users` WHERE user_phone = '"+ user_phone +"';" ;
@@ -30,6 +29,7 @@ public class book {
             System.out.println("User Name: "+user_name);
         }
         /*Get list category*/
+        ArrayList <book_category> categories = new ArrayList<book_category>();
         query = "SELECT * FROM book.book_category;";
         result = statement.executeQuery(query);
         while (result.next()){
