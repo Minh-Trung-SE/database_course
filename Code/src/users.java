@@ -25,10 +25,12 @@ public class users {
         }
         return false;
     }
-//    public users getInformationUsers(Connection connection){
-//        String query;
-//        query = "SELECT * FROM book.users";
-//    }
+    public users getInformationUsers(Connection connection){
+        String query;
+        users user = new users();
+        query = "SELECT * FROM book.users";
+        return user;
+    }
 
     public void registerUser(Connection connection) throws SQLException {
         long user_phone;

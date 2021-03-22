@@ -24,8 +24,9 @@ public class Main {
         }
         users users = new users();
         users.login(connection, "0335840115","minhtrung");
-        users.registerUser(connection);
-
+//        users.registerUser(connection);
+        book book = new book();
+        book.showTitleBookByCategory("0335840115", connection);
     }
 
 }
