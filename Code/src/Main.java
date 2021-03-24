@@ -26,9 +26,11 @@ public class Main {
         assert connection != null;
 //        users.changePassword("0123454321", connection);
 //        users.login(connection, "0335840115","minhtrung");
-//        users.registerUser(connection);
+////        users.registerUser(connection);
 //        book book = new book();
 //        book.showTitleBookByCategory("0335840115", connection);
+        book_post book_post = new book_post();
+        book_post.postBook("0335840115", connection);
     }
 
 }
