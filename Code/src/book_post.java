@@ -9,12 +9,12 @@ public class book_post {
     Timestamp date;
     //Done post Book
     public void postBook(String user_phone, Connection connection) throws SQLException {
-        String book_id = null, book_title, link_book, description, author, query;
+        String book_id, book_title, link_book, description, author, query;
         int category_id, quantity, year_release;
         long price;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter book id: ");
-        book_title = scanner.nextLine();
+        book_id = scanner.nextLine();
         System.out.println("Enter book title: ");
         book_title = scanner.nextLine();
         System.out.println("Enter link book: ");

@@ -29,9 +29,15 @@ public class Main {
 ////        users.registerUser(connection);
 //        book book = new book();
 //        book.showTitleBookByCategory("0335840115", connection);
+
         book_post book_post = new book_post();
 //        book_post.postBook("0335840115", connection);
-        book_post.showPostBook("0123454321", connection);
+//        book_post.showPostBook("0123454321", connection);
+
+        book_favourite book_favourite = new book_favourite();
+        book_favourite.showFavouriteBook("0335840115", connection);
+//        book_favourite.dislike();
+
     }
 
 }
