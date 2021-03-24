@@ -33,41 +33,39 @@ public class users {
     }
 
     public void registerUser(Connection connection) throws SQLException {
-        long user_phone;
-        long phone = 0;
-        String user_name;
-        String user_password;
-        String user_email;
-        String query;
+        String user_phone, exist_phone, user_name, user_password, user_email, query;
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n====Register account====");
-        System.out.println("Enter user phone: ");
-        user_phone = scanner.nextLong();
-        scanner.nextLine();
-        System.out.println("Enter user name ");
+        System.out.print("Enter user phone: ");
+        user_phone = scanner.nextLine();
+        exist_phone = user_phone;
+        System.out.print("Enter user name ");
         user_name = scanner.nextLine();
-        System.out.println("Enter password: ");
+        System.out.print("Enter password: ");
         user_password = scanner.nextLine();
-        System.out.println("Enter email: ");
+        System.out.print("Enter email: ");
         user_email = scanner.nextLine();
         Statement statement = connection.createStatement();
-        query = "SELECT `user_phone` FROM book.users where user_phone = '0"+user_phone+"';";
+        query = "SELECT `user_phone` FROM book.users where user_phone = '"+user_phone+"';";
         ResultSet result = statement.executeQuery(query);
+
         if(result.next()){
-            phone = result.getLong("user_phone");
+            exist_phone = result.getString("user_phone");
+        }else{
+            exist_phone = null;
         }
 
-        if(user_phone != phone){
-            query = "INSERT INTO `book`.`users` (`user_phone`, `user_name`, `user_password`, `user_email`) VALUES ('0"+user_phone+"', '"+user_name+"', '"+user_password+"', '"+user_email+"');";
-            System.out.println(query);
+        if(!(user_phone.equals(exist_phone))){
+            query = "INSERT INTO `book`.`users` (`user_phone`, `user_name`, `user_password`, `user_email`) VALUES ('"+user_phone+"', '"+user_name+"', '"+user_password+"', '"+user_email+"');";
             statement.executeUpdate(query);
             System.out.println("Register success!");
+
         }else{
-            System.out.println("Failed 0"+user_phone+" has used by another account!");
+            System.out.println("Failed "+user_phone+" has used by another account!");
         }
     }
 
-    public void changeInfo(String user_phone,Connection connection) throws SQLException {
+    public void changeInfo(String user_phone, Connection connection) throws SQLException {
         Scanner scanner = new Scanner(System.in);
         String user_name, user_password, user_email, query;
         System.out.println("Enter new username: ");
@@ -77,8 +75,9 @@ public class users {
         System.out.print("Enter new email: ");
         user_email = scanner.nextLine();
         Statement statement = connection.createStatement();
-        query = "UPDATE `book`.`users` SET `user_name` = '"+user_name+"', `user_password` = '"+user_password+"', `user_email` = '"+user_email+"' WHERE (`user_phone` = '"+user_phone+"');";
+        query = "UPDATE `book`.`users` SET `user_name` = '"+ user_name +"', `user_password` = '" + user_password + "', `user_email` = '" + user_email + "' WHERE (`user_phone` = '" + user_phone + "');";
         statement.executeUpdate(query);
+        System.out.println("Change info success!");
     }
 
     public void changePassword(String user_phone,Connection connection) throws SQLException {
@@ -89,7 +88,9 @@ public class users {
         Statement statement = connection.createStatement();
         query = "UPDATE `book`.`users` SET `user_password` = '"+user_password+"' WHERE (`user_phone` = '"+user_phone+"')";
         statement.executeUpdate(query);
+        System.out.println("Update password success!");
     }
+
     public String getUser_phone() {
         return user_phone;
     }

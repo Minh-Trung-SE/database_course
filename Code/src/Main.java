@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
+        int option;
         System.out.println("-------- Start Connection ------------");
         try
         {
@@ -22,11 +23,15 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console"  + e);
         }
+
+        System.out.println();
         users users = new users();
         assert connection != null;
-//        users.changePassword("0123454321", connection);
-//        users.login(connection, "0335840115","minhtrung");
-////        users.registerUser(connection);
+//        users.changePassword("0984500754", connection);
+//        users.login(connection, "0984500754","kienve");
+//        users.registerUser(connection);
+//        users.changeInfo("0984500754", connection);
+
 //        book book = new book();
 //        book.showTitleBookByCategory("0335840115", connection);
 
@@ -36,7 +41,7 @@ public class Main {
 
         book_favourite book_favourite = new book_favourite();
         book_favourite.showFavouriteBook("0335840115", connection);
-//        book_favourite.dislike();
+//        book_favourite.dislike(////);
 
     }
 

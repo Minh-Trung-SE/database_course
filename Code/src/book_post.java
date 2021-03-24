@@ -13,23 +13,25 @@ public class book_post {
         int category_id, quantity, year_release;
         long price;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter book id: ");
+
+        System.out.println("==== Post Book Page ===");
+        System.out.print("Enter book id: ");
         book_id = scanner.nextLine();
-        System.out.println("Enter book title: ");
+        System.out.print("Enter book title: ");
         book_title = scanner.nextLine();
-        System.out.println("Enter link book: ");
+        System.out.print("Enter link book: ");
         link_book = scanner.nextLine();
-        System.out.println("Enter description: ");
+        System.out.print("Enter description: ");
         description = scanner.nextLine();
-        System.out.println("Enter name author: ");
+        System.out.print("Enter name author: ");
         author = scanner.nextLine();
-        System.out.println("Enter price: ");
+        System.out.print("Enter price: ");
         price = scanner.nextLong();
-        System.out.println("Enter quantity: ");
+        System.out.print("Enter quantity: ");
         quantity = scanner.nextInt();
-        System.out.println("Enter year release: ");
+        System.out.print("Enter year release: ");
         year_release = scanner.nextInt();
-        System.out.println("Enter category: ");
+        System.out.print("Enter category: ");
         category_id = scanner.nextInt();
         Statement statement = connection.createStatement();
 
