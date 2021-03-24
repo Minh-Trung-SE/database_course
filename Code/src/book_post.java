@@ -1,8 +1,6 @@
 import java.net.ConnectException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class book_post {
@@ -49,9 +47,32 @@ public class book_post {
     public void showPostBook(String user_phone, Connection connection) throws SQLException {
         String query;
         Statement statement = connection.createStatement();
-        query = "SELECT book_storage.link_book, book_storage.book_title, book_storage.year_release, book_storage.description, book_storage.author, book_storage.price, book_category.category_name, user.user_phone, user.user_email"
-        +"FROM `book`.`book_storage`" +
-                "JOIN `book`.`book_post` ON ((`book`.`book_storage`.`book_id` = `book`.`book_post`.`book_id`)))";
+        ArrayList<String> book_id = new ArrayList<String>();
+
+        query = "SELECT book_id FROM `book`.`book_post` WHERE user_phone = '" + user_phone +"';";
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while (resultSet.next()){
+            book_id.add(resultSet.getString("book_id"));
+        }
+
+        for (String s : book_id) {
+            System.out.println("BookID: " + s);
+
+            query = "SELECT  `book_storage`.`link_photo`, `book_storage`.`book_title`, `book_post`.`date`, `book_storage`.`release_year`, `book_storage`.`price` " +
+                    "FROM `book`.`book_post`" +
+                    "INNER JOIN `book`.`book_storage` ON `book`.`book_storage`.`book_id` = `book`.`book_post`.`book_id`" +
+                    "WHERE `book`.`book_post`.`book_id` = '" + s + "';";
+
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                System.out.println("    Link photo: " + resultSet.getString("link_photo"));
+                System.out.println("    Book Title: " + resultSet.getString("book_title"));
+                System.out.println("    Date update: " + resultSet.getString("date"));
+                System.out.println("    Year release: " + resultSet.getString("release_year"));
+                System.out.println("    Price: " + resultSet.getString("price"));
+            }
+        }
 
     }
 

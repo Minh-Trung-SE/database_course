@@ -30,7 +30,8 @@ public class Main {
 //        book book = new book();
 //        book.showTitleBookByCategory("0335840115", connection);
         book_post book_post = new book_post();
-        book_post.postBook("0335840115", connection);
+//        book_post.postBook("0335840115", connection);
+        book_post.showPostBook("0123454321", connection);
     }
 
 }
